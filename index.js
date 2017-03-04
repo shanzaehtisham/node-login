@@ -12,7 +12,7 @@ var connect = require('connect'),
   var MongoClient = require('mongodb').MongoClient;
 
 // Connect to the db
-MongoClient.connect("mongodb://shanza:Indushospital1@ds058369.mlab.com:58369/fyp", function (err, db) {
+MongoClient.connect("mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp", function (err, db) {
    
      if(err) throw err;
 
