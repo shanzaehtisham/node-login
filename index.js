@@ -41,4 +41,3 @@ mongo.connect(process.env.MONGOLAB_URI, {}, function(error, db){
       // the PORT variable will be assigned by Heroku
     });
   });
-});
