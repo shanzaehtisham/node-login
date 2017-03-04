@@ -43,6 +43,7 @@ MongoClient.connect(process.env.MONGOLAB_URI, function (err, db) {
 	 
                 
 });
+});
 
 /*
 mongo.connect(process.env.MONGOLAB_URI,  {},function(error, db){
