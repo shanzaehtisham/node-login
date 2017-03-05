@@ -1,13 +1,23 @@
 var connect = require('connect'),
-  mongo = require('mongodb');
-  mongoose = require('mongoose');
+  mongo = require('mongodb'),
+  mongoose = require('mongoose'),
+  express = require('express');
 
-// Connect to a mongo database via URI
-// With the MongoLab addon the MONGOLAB_URI config variable is added to your
-// Heroku environment.  It can be accessed as process.env.MONGOLAB_URI
-
+  
+  
 //mongoose.connect(process.env.MONGOLAB_URI);
   
+  var app = express();
+  
+  app.get('/', function (req, res) {
+	  
+	  res.send("Hello world");
+	  
+  });
+  
+  app.listen(process.env.PORT, function(){
+	  console.log("Listening on port"+process.env.PORT);	  
+  });
   
   var MongoClient = require('mongodb').MongoClient;
 
@@ -35,6 +45,8 @@ MongoClient.connect("mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/f
 	 
                 
 });
+
+
 
 /*
 mongo.connect(process.env.MONGOLAB_URI,  {},function(error, db){
@@ -77,3 +89,4 @@ mongo.connect(process.env.MONGOLAB_URI,  {},function(error, db){
   
 });
 */
+
