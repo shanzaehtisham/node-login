@@ -61,7 +61,7 @@ var connect = require('connect'),
 		 
 	  });
 	  
-	  res.end(items);
+	  res.send(items);
   });
   
   
