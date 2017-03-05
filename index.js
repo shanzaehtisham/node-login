@@ -3,32 +3,28 @@ var connect = require('connect'),
   mongoose = require('mongoose'),
   express = require('express');
 
-  
-  
-//mongoose.connect(process.env.MONGOLAB_URI);
-  
+  var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
+  var MongoClient = require('mongodb').MongoClient;
   var app = express();
   
+  /*
   app.get('/', function (req, res) {
-	  
-	  res.send("Hello world");
-	  
+	  res.send("Hello world");	  
   });
+  */
   
   app.post('/', function (req, res) {
-	  
 	  res.send("Hello world");
-	  
   });
   
   app.listen(process.env.PORT, function(){
 	  console.log("Listening on port"+process.env.PORT);	  
   });
   
-  var MongoClient = require('mongodb').MongoClient;
+  
 
 // Connect to the db
-MongoClient.connect("mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp", function (err, db) {
+MongoClient.connect(uri, function (err, db) {
    
      if(err) throw err;
 
@@ -38,17 +34,13 @@ MongoClient.connect("mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/f
         collection.insert({ id: 1, firstName: 'Steve', lastName: 'Jobs' });
         collection.insert({ id: 2, firstName: 'Bill', lastName: 'Gates' });
         collection.insert({ id: 3, firstName: 'James', lastName: 'Bond' });
-        
-        
-
+		
         db.collection('Persons').count(function (err, count) {
             if (err) throw err;
             
             console.log('Total Rows: ' + count);
         });
     });
-                
-	 
                 
 });
 
