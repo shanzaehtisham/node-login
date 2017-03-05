@@ -39,7 +39,7 @@ var connect = require('connect'),
 	
   });
   
-  app.post('/listall', function (req, res) {
+  app.get('/listall', function (req, res) {
 	  res.send("List All");
 	  
 	  MongoClient.connect(uri, function (err, db) {
@@ -47,10 +47,12 @@ var connect = require('connect'),
 		 if(err) throw err;
 		 
 		 db.collection('Persons', function(err, collection) {
+			 
              collection.find().toArray(function(err, items) {
 				 console.log(items);
-				 res.send(items);
+				 res.json(items);
              });
+			 
          });
 		 
 	  });
