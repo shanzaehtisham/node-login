@@ -45,6 +45,8 @@ var connect = require('connect'),
   app.post('/listall', function (req, res) {
 	  res.send("List All");
 	  
+	  var items;
+	  
 	  MongoClient.connect(uri, function (err, db) {
    
 		 if(err) throw err;
@@ -53,12 +55,13 @@ var connect = require('connect'),
 			 
              collection.find().toArray(function(err, items) {
 				 console.log(items);
-				 res.end(items);
              });
 			 
          });
 		 
 	  });
+	  
+	  res.end(items);
   });
   
   
