@@ -7,15 +7,16 @@ var connect = require('connect'),
   var MongoClient = require('mongodb').MongoClient;
   var app = express();
   
-  /*
+
   app.get('/', function (req, res) {
 	  res.send("Hello world");	  
   });
-  */
-  
+
+  /*
   app.post('/', function (req, res) {
 	  res.send("Hello world");
   });
+  */
   
   app.listen(process.env.PORT, function(){
 	  console.log("Listening on port"+process.env.PORT);	  
