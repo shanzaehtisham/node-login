@@ -1,12 +1,15 @@
 var connect = require('connect'),
   mongo = require('mongodb'),
   mongoose = require('mongoose'),
-  express = require('express');
+  express = require('express'),
+  body-parser = require('body-parser') ;
+  
 
   var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
   var MongoClient = require('mongodb').MongoClient;
   var app = express();
   
+  app.use(body-parser.json());
 
   app.get('/', function (req, res) {
 	  res.send("Hello world");	  
@@ -50,7 +53,7 @@ var connect = require('connect'),
 			 
              collection.find().toArray(function(err, items) {
 				 console.log(items);
-				 res.json(items);
+				 res.end(items);
              });
 			 
          });
