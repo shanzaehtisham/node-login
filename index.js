@@ -49,6 +49,7 @@ var connect = require('connect'),
 		 db.collection('Persons', function(err, collection) {
              collection.find().toArray(function(err, items) {
 				 console.log(items);
+				 res.send(items);
              });
          });
 		 
