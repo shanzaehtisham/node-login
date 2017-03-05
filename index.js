@@ -15,6 +15,12 @@ var connect = require('connect'),
 	  
   });
   
+  app.post('/', function (req, res) {
+	  
+	  res.send("Hello world");
+	  
+  });
+  
   app.listen(process.env.PORT, function(){
 	  console.log("Listening on port"+process.env.PORT);	  
   });
