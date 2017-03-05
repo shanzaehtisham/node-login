@@ -14,14 +14,14 @@ var connect = require('connect'),
 
   
   app.post('/', function (req, res) {
-	  res.send("Hello world");
+	  res.send("Normal Post");
 	  
 	  MongoClient.connect(uri, function (err, db) {
    
 		 if(err) throw err;
 
 		 //Write databse Insert/Update/Query code here..
-		 db.collection('Persons', function 	 (err, collection) {
+		 db.collection('Persons', function(err, collection) {
 			
 			collection.insert({ id: 1, firstName: 'Steve', lastName: 'Jobs' });
 			collection.insert({ id: 2, firstName: 'Bill', lastName: 'Gates' });
@@ -33,8 +33,28 @@ var connect = require('connect'),
 				console.log('Total Rows: ' + count);
 			});
 		});
-                
+               
+		 
 	});
+	
+  });
+  
+  app.post('/listall', function (req, res) {
+	  res.send("List All");
+	  
+	  MongoClient.connect(uri, function (err, db) {
+   
+		 if(err) throw err;
+		 
+		 db.collection('Persons', function(err, collection) {
+             collection.find().toArray(function(err, items) {
+				 items = JSON.parse(items);
+				 console.log(items);
+                 res.send(JSON.stringify(data));
+             });
+         });
+		 
+	  });
   });
   
   
