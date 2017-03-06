@@ -19,7 +19,7 @@ var connect = require('connect'),
   app.post('/insertPersons', function (req, res) {
 	  res.send("Normal Post");
 	  
-	  console.log("JSON Received as : "req);
+	  console.log('JSON Received as : ' + req);
 	  
 	  MongoClient.connect(uri, function (err, db) {
    
