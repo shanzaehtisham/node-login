@@ -53,7 +53,7 @@ var connect = require('connect'),
 			 
              collection.find().toArray(function(err, items) {
 				 console.log(items);
-				 res.send(items);
+				 return res.json(items);
              });
 			 
          });
