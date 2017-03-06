@@ -42,7 +42,7 @@ var connect = require('connect'),
 	
   });
   
-  app.post('/listall', function (req, res) {
+  app.get('/Persons', function (req, res) {
 	  res.send("List All");
 	  
 	  MongoClient.connect(uri, function (err, db) {
