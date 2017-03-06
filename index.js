@@ -12,7 +12,7 @@ var connect = require('connect'),
   app.use(bodyparser.json());
 
   app.get('/', function (req, res) {
-	  res.send("Hello world");	  
+	  res.send("Hello People");	  
   });
 
   
