@@ -19,7 +19,7 @@ var connect = require('connect'),
   app.post('/insertPersons', function (req, res) {
 	  res.send("Normal Post");
 	  
-	  console.log('JSON Received as : ' + req);
+	  console.log('JSON Received as : ' + req.body);
 	  
 	  MongoClient.connect(uri, function (err, db) {
    
@@ -27,7 +27,6 @@ var connect = require('connect'),
 
 		 //Write databse Insert/Update/Query code here..
 		 db.collection('Persons', function(err, collection) {
-			
 			
 			collection.insert(req);
 			
