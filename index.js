@@ -43,7 +43,7 @@ var connect = require('connect'),
   });
   
   app.get('/Persons', function (req, res) {
-	  res.send("List All");
+	  //res.send("List All");
 	  
 	  MongoClient.connect(uri, function (err, db) {
    
