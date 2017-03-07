@@ -6,7 +6,7 @@ var connect = require('connect'),
   var app = express();
   
   require('./routes.js')(app);
-  require('.models/profile.js');
+  require('./models/profile');
   
   var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
   var MongoClient = require('mongodb').MongoClient;
