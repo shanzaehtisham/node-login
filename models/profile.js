@@ -27,9 +27,9 @@ var profileSchema = new Schema({
     Fuel_consumption: String,
     
     Added_by: String,
-    Added_on: Timestamp,
+    Added_on: Date,
     Updated_by: String,
-    Updated_on: Timestamp
+    Updated_on: Date
 });
 
 mongodb.model('Profile', profileSchema);
