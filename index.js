@@ -5,7 +5,7 @@ var connect = require('connect'),
   bodyparser = require('body-parser') ;
   var app = express();
   
-  require('./routes');
+  require('./routes.js')(app);
   require('.model/persons');
   
   var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
