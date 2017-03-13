@@ -13,6 +13,7 @@ var connect = require('connect'),
   
   require('./routes.js')(app);
   require('./models/profile');
+  require('./models/tracking');
   
   
   app.get('/', function (req, res) {
