@@ -21,7 +21,7 @@ exports.findAll = function(req, res) {
 
 exports.add = function(req, res) {
 	
-	console.log('JSON Received as : ' +req.body.data);
+	console.log('JSON Received as : ' +req.data);
 	  
 	  MongoClient.connect(uri, function (err, db) {
    
