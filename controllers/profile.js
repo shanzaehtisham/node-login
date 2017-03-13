@@ -29,7 +29,7 @@ exports.add = function(req, res) {
 
 		 db.collection('profile', function(err, collection) {
 			
-			collection.insert(req.body, function(err, result){				
+			collection.insert(req, function(err, result){				
 				if(err)
 					res.send("Error");
 				else
