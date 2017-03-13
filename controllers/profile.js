@@ -27,27 +27,16 @@ exports.add = function(req, res) {
    
 		 if(err) throw err;
 
-		 /*
-		 db.collection('profile').insert(req.body, function(err, result) {
+		 
+		 var stringJSON = {"Name":"Shanzah","ProfileID":"101","Gender":"Female"};
+		 
+		 db.collection('profile').insert(stringJSON, function(err, result) {
 			 if(err)
 					res.send("Error");
 				else
 					res.send("Success");
 		 });
-			*/
-		
-		// previous code
-		
-			db.collection('profile', function(err, collection) {
-				
-				collection.insert(req.body, function(err, result){
-					
-					if(err)
-						res.send("Error");
-					else
-						res.send("Success");
-				});
-			});
+	
 		
 		
 			db.collection('profile').count(function (err, count) {
