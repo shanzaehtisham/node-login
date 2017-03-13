@@ -1,6 +1,6 @@
 
-var mongodb = require('mongodb'),
-Schema = mongodb.Schema;
+var mongoose = require('mongoose'),
+Schema = mongoose.Schema;
 
 var profileSchema = new Schema({
 	ProfileID : String,
