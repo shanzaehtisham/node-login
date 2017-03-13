@@ -21,28 +21,25 @@ exports.findAll = function(req, res) {
 
 exports.add = function(req, res) {
 	
-	console.log('JSON Received as : ' +req.data);
+	console.log('JSON Received as : ' +req.body.data);
 	  
 	  MongoClient.connect(uri, function (err, db) {
    
 		 if(err) throw err;
-
 		 
-		 var stringJSON = {"Name":"Shanzah","ProfileID":"101","Gender":"Female"};
+		 //var stringJSON = {"Name":"Shanzah","ProfileID":"101","Gender":"Female"};
 		 
-		 db.collection('profile').insert(stringJSON, function(err, result) {
-			 if(err)
+			 db.collection('profile').insert(req.body, function(err, result) {
+				 if(err)
 					res.send("Error");
 				else
 					res.send("Success");
-		 });
-	
-		
-		
+			 });
+			 
 			db.collection('profile').count(function (err, count) {
 				if (err) throw err;
-				
-				console.log('Total Rows: ' + count);
+					console.log('Total Rows: ' + count);
 			});
 		});	 
 	};
+	
