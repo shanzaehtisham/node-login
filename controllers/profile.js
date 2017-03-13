@@ -27,15 +27,12 @@ exports.add = function(req, res) {
    
 		 if(err) throw err;
 
-		 db.collection('profile', function(err, collection) {
-			
-			collection.insert(req, function(err, result){				
-				if(err)
+		 db.collection('profile').insert(req.body, function(err, result) {
+			 if(err)
 					res.send("Error");
 				else
 					res.send("Success");
-			});
-			
+		 });
 			//collection.insert({ id: 2, firstName: 'Bill', lastName: 'Gates' });
 
 			db.collection('profile').count(function (err, count) {
@@ -43,10 +40,5 @@ exports.add = function(req, res) {
 				
 				console.log('Total Rows: ' + count);
 			});
-		});
-               
-		 
-	});
-	
-	
-};
+		});	 
+	};
