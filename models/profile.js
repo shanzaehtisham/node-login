@@ -32,4 +32,4 @@ var profileSchema = new Schema({
     Updated_on: Date
 });
 
-mongodb.model('Profile', profileSchema);
+mongoose.model('Profile', profileSchema);
