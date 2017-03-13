@@ -29,14 +29,14 @@ exports.add = function(req, res) {
 		 
 		 //var stringJSON = {"Name":"Shanzah","ProfileID":"101","Gender":"Female"};
 		 
-			 db.collection('profile').insert(req.body, function(err, result) {
+			 db.collection('Profile').insert(req.body, function(err, result) {
 				 if(err)
 					res.send("Error");
 				else
 					res.send("Success");
 			 });
 			 
-			db.collection('profile').count(function (err, count) {
+			db.collection('Profile').count(function (err, count) {
 				if (err) throw err;
 					console.log('Total Rows: ' + count);
 			});
