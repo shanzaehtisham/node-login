@@ -35,14 +35,20 @@ exports.updateEndLocation = function(req, res) {
 		if(err) throw err;
 		
 		db.collection('Tracking').update(
-		  {"_id": req.body.Object_ID},
-		  { 
-			$set: {
-			  "End_location_latlng": req.body.End_location_latlng,
-			  "End_location_name": req.body.End_location_name,
-			  "Journey_EndDateTime" : req.body.Journey_EndDateTime
+			{
+				"_id": req.body.Object_ID
+			},
+			{ 
+				$set: {
+					"End_location_latlng": req.body.End_location_latlng,
+					"End_location_name": req.body.End_location_name,
+					"Journey_EndDateTime" : req.body.Journey_EndDateTime
+				}
+			},
+			function (err, result) {
+				if (err) throw err;
+				console.log(result);
 			}
-		  }
 		);
 	 
 	});
