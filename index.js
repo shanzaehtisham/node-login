@@ -1,5 +1,5 @@
 var connect = require('connect'),
-  mongo = require('mongodb'),
+  mongodb = require('mongodb'),
   mongoose = require('mongoose'),
   express = require('express'),
   bodyparser = require('body-parser') ;
