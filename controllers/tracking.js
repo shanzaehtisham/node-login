@@ -38,7 +38,7 @@ exports.updateEndLocation = function(req, res) {
 		
 		db.collection('Tracking').update(
 			{
-				"_id": ObjectID(req.body.Object_ID)
+				"_id": ObjectID(""+req.body.Object_ID)
 			},
 			{ 
 				$set: {
