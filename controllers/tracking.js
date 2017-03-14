@@ -13,8 +13,11 @@ exports.add = function(req, res) {
 			 db.collection('Tracking').insert(req.body, function(err, result) {
 				 if(err)
 					res.send("Error");
-				else
+				else {
+					console.log("ID returned = " + result["ops"][0]["_id"]);
 					res.send("Success");
+				}
+					
 			 });
 			 
 			db.collection('Tracking').count(function (err, count) {
