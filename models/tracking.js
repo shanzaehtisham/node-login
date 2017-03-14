@@ -8,6 +8,7 @@ var profileSchema = new Schema({
     Profile_ID: String,
 	
 	Journery_StartDateTime: Date,
+	Journery_EndDateTime: Date,
 
     Start_location_latlng: String,
 	Start_location_name: String,
