@@ -15,7 +15,7 @@ exports.add = function(req, res) {
 					res.send("Error");
 				else {
 					console.log("ID returned = " + result["ops"][0]["_id"]);
-					res.send("Success");
+					return result["ops"][0]["_id"]);
 				}
 					
 			 });
