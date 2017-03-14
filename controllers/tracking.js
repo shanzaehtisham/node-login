@@ -32,6 +32,8 @@ exports.add = function(req, res) {
 
 exports.updateEndLocation = function(req, res) {
 	
+	console.log('Update JSON = ' + JSON.stringify(req));
+	
 	MongoClient.connect(uri, function (err, db) {
    
 		if(err) throw err;
