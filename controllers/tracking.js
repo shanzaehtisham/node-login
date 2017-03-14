@@ -47,7 +47,7 @@ exports.updateEndLocation = function(req, res) {
 			},
 			function (err, result) {
 				if (err) throw err;
-				console.log(result);
+				console.log('result of update = '+result);
 			}
 		);
 	 
