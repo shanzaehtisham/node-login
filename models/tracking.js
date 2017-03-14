@@ -7,8 +7,8 @@ var profileSchema = new Schema({
 	Tracking_ID: String,
     Profile_ID: String,
 	
-	Journery_StartDateTime: Date,
-	Journery_EndDateTime: Date,
+	Journey_StartDateTime: Date,
+	Journey_EndDateTime: Date,
 
     Start_location_latlng: String,
 	Start_location_name: String,
