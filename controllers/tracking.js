@@ -19,7 +19,7 @@ exports.add = function(req, res) {
 			 
 			db.collection('Tracking').count(function (err, count) {
 				if (err) throw err;
-					console.log('Total Rows: ' + count);
+					console.log('Total Rows in Tracking: ' + count);
 			});
 		});	 
 	};

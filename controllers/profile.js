@@ -38,7 +38,7 @@ exports.add = function(req, res) {
 			 
 			db.collection('Profile').count(function (err, count) {
 				if (err) throw err;
-					console.log('Total Rows: ' + count);
+					console.log('Total Rows in Profile: ' + count);
 			});
 		});	 
 	};

@@ -9,6 +9,7 @@ var profileSchema = new Schema({
 	UserName: String,
     Name: String,
     Gender: String,
+	Password: String,
 	
     Contact: {
         Phone: String,
@@ -20,8 +21,7 @@ var profileSchema = new Schema({
     Designation: String,
     
     Home_Address: String,
-
-    Password: String,
+    
     Color: String,
     Status: String,
     
