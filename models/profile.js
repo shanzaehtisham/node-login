@@ -3,13 +3,18 @@ var mongoose = require('mongoose'),
 Schema = mongoose.Schema;
 
 var profileSchema = new Schema({
+	
 	ProfileID : String,
+	
+	UserName: String,
     Name: String,
     Gender: String,
+	
     Contact: {
         Phone: String,
         Phone: String
     },
+	
     Service_provider: String,
     Email: String,
     Designation: String,

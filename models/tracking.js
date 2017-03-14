@@ -3,16 +3,23 @@ var mongoose = require('mongoose'),
 Schema = mongoose.Schema;
 
 var profileSchema = new Schema({
-    TrackingID: String,
-    Journery_StartTime: Date,
-    Journey_StartDate: Date,
-    Start_location: String,
-    End_location: String,
+    
+	TrackingID: String,
     Profile_ID: String,
-    Route: {
-      location:  String,
-      time: Date  
+	
+	Journery_StartDateTime: Date,
+
+    Start_location_latlng: String,
+	Start_location_name: String,
+    End_location_latlng: String,
+	End_location_name: String,
+    
+	Route: {
+      crnt_location_latlng:  String,
+	  crnt_location_name:  String,
+      crnt_time: Date  
     },
+	
     Purpose: String,
     Purpose_ID: String
 });
