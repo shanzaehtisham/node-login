@@ -1,5 +1,7 @@
   var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
   var MongoClient = require('mongodb').MongoClient;
+  
+  var ObjectID = require('mongodb').ObjectID;
 
 
 exports.add = function(req, res) {
@@ -36,7 +38,7 @@ exports.updateEndLocation = function(req, res) {
 		
 		db.collection('Tracking').update(
 			{
-				"_id": ObjectId(req.body.Object_ID);
+				"_id": ObjectID(req.body.Object_ID)
 			},
 			{ 
 				$set: {
