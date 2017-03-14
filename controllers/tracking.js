@@ -27,3 +27,30 @@ exports.add = function(req, res) {
 		});	 
 	};
 	
+
+exports.updateEndLocation = function(req, res) {
+	
+	MongoClient.connect(uri, function (err, db) {
+   
+		if(err) throw err;
+		
+		db.collection('Tracking').update(
+		  {"_id": req.body.Object_ID},
+		  { 
+			$set: {
+			  "End_location_latlng": req.body.End_location_latlng,
+			  "End_location_name": req.body.End_location_name,
+			  "Journey_EndDateTime" : req.body.Journey_EndDateTime
+			}
+		  }
+		);
+	 
+	});
+};
+
+
+exports.updateRoute = function(req, res) {
+	
+};
+
+
