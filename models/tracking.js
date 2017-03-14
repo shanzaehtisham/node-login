@@ -4,7 +4,7 @@ Schema = mongoose.Schema;
 
 var profileSchema = new Schema({
     
-	TrackingID: String,
+	Tracking_ID: String,
     Profile_ID: String,
 	
 	Journery_StartDateTime: Date,

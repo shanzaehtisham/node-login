@@ -4,7 +4,7 @@ Schema = mongoose.Schema;
 
 var profileSchema = new Schema({
 	
-	ProfileID : String,
+	Profile_ID : String,
 	
 	UserName: String,
     Name: String,
