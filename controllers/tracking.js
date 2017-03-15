@@ -32,9 +32,8 @@ exports.add = function(req, res) {
 exports.updateEndLocation = function(req, res) {
 	
 	console.log('Update JSON = ' + req.body.Object_ID);
-	
-	var idReceived = ''+req.body.Object_ID;
-	
+
+	var idReceived = req.body.Object_ID.replace(/"/g, '\'');
 	
 	MongoClient.connect(uri, function (err, db) {
    
@@ -42,7 +41,7 @@ exports.updateEndLocation = function(req, res) {
 		
 		db.collection('Tracking').update(
 			{
-				"_id": mongoose.Types.ObjectId('58c947b7bdc9200004af0a75')
+				"_id": mongoose.Types.ObjectId(idReceived)
 			},
 			{ 
 				$set: {
