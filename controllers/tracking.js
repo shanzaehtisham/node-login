@@ -39,7 +39,7 @@ exports.updateEndLocation = function(req, res) {
 		
 		db.collection('Tracking').update(
 			{
-				"_id": mongoose.Types.ObjectId(''+req.body.Object_ID)
+				"_id": mongoose.mongo.BSONPure.ObjectID.fromHexString(req.body.Object_ID)
 			},
 			{ 
 				$set: {
