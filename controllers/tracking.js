@@ -32,7 +32,7 @@ exports.add = function(req, res) {
 
 exports.updateEndLocation = function(req, res) {
 	
-	console.log('Update JSON = ' + JSON.stringify(req));
+	console.log('Update JSON = ' + req.body.Object_ID);
 	
 	MongoClient.connect(uri, function (err, db) {
    
@@ -40,7 +40,7 @@ exports.updateEndLocation = function(req, res) {
 		
 		db.collection('Tracking').update(
 			{
-				"_id": ObjectID(""+req.body.Object_ID)
+				"_id": ObjectID(''+req.body.Object_ID)
 			},
 			{ 
 				$set: {
