@@ -1,5 +1,7 @@
   var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
   var MongoClient = require('mongodb').MongoClient;
+  var mongoose = require('mongoose');
+
 
 exports.add = function(req, res) {
 	
