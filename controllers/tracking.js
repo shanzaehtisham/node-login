@@ -33,13 +33,16 @@ exports.updateEndLocation = function(req, res) {
 	
 	console.log('Update JSON = ' + req.body.Object_ID);
 	
+	var idReceived = ''+req.body.Object_ID;
+	
+	
 	MongoClient.connect(uri, function (err, db) {
    
 		if(err) throw err;
 		
 		db.collection('Tracking').update(
 			{
-				"_id": mongoose.Types.ObjectId(""+req.body.Object_ID)
+				"_id": mongoose.Types.ObjectId(idReceived)
 			},
 			{ 
 				$set: {
