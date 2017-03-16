@@ -48,9 +48,8 @@ exports.updateEndLocation = function(req, res) {
 		var query = { "_id": idReceived };
 		
 		
-		db.collection('Tracking').find
-		(
-			query, 
+		db.collection('Tracking').find(query)
+		.toArray(
 			function(err, result){
 				console.log('success');
 				if (err) throw err;
