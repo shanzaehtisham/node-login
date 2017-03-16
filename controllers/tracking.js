@@ -20,22 +20,38 @@
   
 exports.add = function(req, res) {
 	
-	//console.log('JSON Received as : ' +req.body.data);
-	  var obj = new TrackingModel(req.body)
-	  obj.save(function(err, result) {
+	//console.log('JSON Received as : ' , req.body.data);
+		var obj = new TrackingModel(req.body)
+		
+		/*
+		obj.save(function(err, result) {
+			if(err)
+				res.send("Error");
+			else {
+				console.log("ID returned = " + result["_id"]);
+				return res.json(result["_id"]);
+			}
+					
+		});
+		*/		
+		TrackingModel.insert(req.body, function(err, result) {
 				 if(err)
 					res.send("Error");
 				else {
-					console.log("ID returned = " + result["_id"]);
-					return res.json(result["_id"]);
+					console.log("ID returned = " + result["ops"][0]["_id"]);
+					return res.json(result["ops"][0]["_id"]);
 				}
 					
-			 });	 
+		});
+
+		Tracking.count(function (err, count) {
+				if (err) throw err;
+					console.log('Total Rows in Tracking: ' + count);
+		});
 	};
 	
 
 exports.updateEndLocation = function(req, res) {
-	
 	
 	console.log("req.body" , req.body);
 	console.log('ObjectID received = ' + req.body.Object_ID);
@@ -45,20 +61,26 @@ exports.updateEndLocation = function(req, res) {
 	console.log('After parsing = ' + idReceived);
 	
 	var query = { "_id": new mongoose.Types.ObjectId(idReceived) };
-	TrackingModel.update(query, { 
+	
+	TrackingModel.update
+		(
+			query
+			,{ 
 				"$set": 
 				{
 					"End_location_latlng": req.body.End_location_latlng,
 					"End_location_name": req.body.End_location_name,
 					"Journey_EndDateTime" : req.body.Journey_EndDateTime
 				}
-			},function(err, result){
-		console.log('success');
-		if (err) throw err;
-		console.log('result of update = '+ result);
-	});
+			},
+			function(err, result){
+				console.log('success');
+				if (err) throw err;
+			console.log('result of update = '+ result);
+			}
+	);
 	
-	};
+};
 
 exports.updateRoute = function(req, res) {
 	
