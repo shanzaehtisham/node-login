@@ -43,7 +43,7 @@ exports.updateEndLocation = function(req, res) {
 		
 		db.collection('Tracking').update(
 			{
-				"_id": idReceived
+				"_id.$oid": idReceived
 			},
 			{ 
 				$set: {
@@ -54,7 +54,7 @@ exports.updateEndLocation = function(req, res) {
 			},
 			function (err, result) {
 				if (err) throw err;
-				console.log('result of update = '+result);
+				console.log('result of update = '+result.pretty());
 			}
 		);
 	 
