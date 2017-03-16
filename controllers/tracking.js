@@ -31,9 +31,11 @@ exports.add = function(req, res) {
 
 exports.updateEndLocation = function(req, res) {
 	
-	console.log('Update JSON = ' + req.body.Object_ID);
+	console.log('ObjectID received = ' + req.body.Object_ID);
 
 	var idReceived = req.body.Object_ID.replace(/"/g, '\'');
+	
+	console.log('After parsing = ' + idReceived);
 	
 	MongoClient.connect(uri, function (err, db) {
    
