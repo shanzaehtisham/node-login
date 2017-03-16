@@ -43,7 +43,7 @@ exports.updateEndLocation = function(req, res) {
    
 		if(err) throw err;
 		
-		var query = { "_id": ObjectId(idReceived) };
+		var query = { "_id": ObjectId(req.body.Object_ID) };
 		
 		profileSchema.findOneAndUpdate
 		(
