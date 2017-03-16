@@ -61,5 +61,24 @@
 
 	
 	exports.updateRoute = function(req, res) {
+		var idReceived = req.body.Object_ID.replace(/"/g, '');
+		var query = { "_id": new mongoose.Types.ObjectId(idReceived) };
 		
+		TrackingModel.update
+		(
+			query
+			,{ 
+				"$set": 
+				{
+					"Route.crnt_location_latlng": req.body.crnt_location_latlng,
+					"Route.crnt_location_name": req.body.crnt_location_name,
+					"Route.crnt_time" : req.body.crnt_time
+				}
+			},
+			function(err, result){
+				console.log('success');
+				if (err) throw err;
+			console.log('result of update = '+ result);
+			}
+		);
 	};
