@@ -1,6 +1,7 @@
   var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
   var MongoClient = require('mongodb').MongoClient;
-  var ObjectId = require('mongodb').ObjectID
+  var ObjectId = require('mongodb').ObjectID;
+  var mongoose = require('mongoose');
 
 
   var model = require('./../models/tracking');
@@ -45,7 +46,8 @@ exports.updateEndLocation = function(req, res) {
    
 		if(err) throw err;
 		
-		var query = { "_id": idReceived };
+		
+		var query = { "_id": new mongoose.Types.ObjectId(idReceived) };
 		
 		
 		db.collection('Tracking').find({ _id : "58caaa6278dad6000498ebbd" })
