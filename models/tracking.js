@@ -12,6 +12,7 @@ var profileSchema = new Schema({
 
     Start_location_latlng: String,
 	Start_location_name: String,
+	
     End_location_latlng: String,
 	End_location_name: String,
     
