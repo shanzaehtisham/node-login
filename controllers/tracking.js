@@ -52,7 +52,7 @@ exports.updateEndLocation = function(req, res) {
 						"End_location_name": req.body.End_location_name,
 						"Journey_EndDateTime" : req.body.Journey_EndDateTime
 					}
-			}
+			},
 			{	upsert:false,
 				multi:false
 			},
