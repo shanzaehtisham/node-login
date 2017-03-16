@@ -5,7 +5,7 @@
 
 exports.add = function(req, res) {
 	
-	console.log('JSON Received as : ' +req.body.data);
+	//console.log('JSON Received as : ' +req.body.data);
 	  
 	  MongoClient.connect(uri, function (err, db) {
    
@@ -43,7 +43,9 @@ exports.updateEndLocation = function(req, res) {
 
 		db.collection('Tracking').update(
 			{
-				"_id.$oid": idReceived
+				"_id" :{
+					"$oid": idReceived
+				}
 			},
 			{ 
 				"$set": 
