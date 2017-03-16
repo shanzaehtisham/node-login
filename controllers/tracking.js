@@ -16,9 +16,9 @@
 		}
 	});
 
-	var TrackingModel = dbcon.model('Tracking', model.profileSchema);
+	var TrackingModel = dbcon.model('Tracking', model.trackingSchema);
   
-exports.add = function(req, res) {
+	exports.add = function(req, res) {
 
 		var obj = new TrackingModel(req.body)
 		
@@ -34,18 +34,12 @@ exports.add = function(req, res) {
 	};
 	
 
-exports.updateEndLocation = function(req, res) {
-	
-	console.log("req.body" , req.body);
-	console.log('ObjectID received = ' + req.body.Object_ID);
+	exports.updateEndLocation = function(req, res) {
 
-	var idReceived = req.body.Object_ID.replace(/"/g, '');
-	
-	console.log('After parsing = ' + idReceived);
-	
-	var query = { "_id": new mongoose.Types.ObjectId(idReceived) };
-	
-	TrackingModel.update
+		var idReceived = req.body.Object_ID.replace(/"/g, '');
+		var query = { "_id": new mongoose.Types.ObjectId(idReceived) };
+		
+		TrackingModel.update
 		(
 			query
 			,{ 
@@ -61,10 +55,11 @@ exports.updateEndLocation = function(req, res) {
 				if (err) throw err;
 			console.log('result of update = '+ result);
 			}
-	);
-	
-};
+		);
+		
+	};
 
-exports.updateRoute = function(req, res) {
 	
-};
+	exports.updateRoute = function(req, res) {
+		
+	};
