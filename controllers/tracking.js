@@ -3,7 +3,7 @@
   var ObjectId = require('mongodb').ObjectID
 
 
-  var model = require('./models/tracking');
+  //var model = require('./models/tracking');
   
 exports.add = function(req, res) {
 	
@@ -45,7 +45,7 @@ exports.updateEndLocation = function(req, res) {
 		
 		var query = { "_id": ObjectId(idReceived) };
 		
-		model.findOneAndUpdate
+		profileSchema.findOneAndUpdate
 		(
 			query,
 			{ 
