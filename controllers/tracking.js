@@ -43,7 +43,7 @@ exports.updateEndLocation = function(req, res) {
 
 		db.collection('Tracking').update(
 			{
-				"_id.$oid": idReceived
+				"_id.$oid": mongoose.Types.ObjectId(idReceived)
 			},
 			{ 
 				"$set": 
