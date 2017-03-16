@@ -23,7 +23,6 @@ exports.add = function(req, res) {
 	//console.log('JSON Received as : ' , req.body.data);
 		var obj = new TrackingModel(req.body)
 		
-		/*
 		obj.save(function(err, result) {
 			if(err)
 				res.send("Error");
@@ -33,7 +32,8 @@ exports.add = function(req, res) {
 			}
 					
 		});
-		*/		
+		
+		/*
 		TrackingModel.insert(req.body, function(err, result) {
 				 if(err)
 					res.send("Error");
@@ -43,8 +43,9 @@ exports.add = function(req, res) {
 				}
 					
 		});
+		*/
 
-		Tracking.count(function (err, count) {
+		db.collection('Tracking').count(function (err, count) {
 				if (err) throw err;
 					console.log('Total Rows in Tracking: ' + count);
 		});
