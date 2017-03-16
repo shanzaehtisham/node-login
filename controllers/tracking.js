@@ -40,17 +40,16 @@ exports.updateEndLocation = function(req, res) {
 	MongoClient.connect(uri, function (err, db) {
    
 		if(err) throw err;
-		
+
 		db.Tracking.update(
 			{
 				"_id.$oid": idReceived
 			},
 			{ 
-				$set: {
+				$set: 
 					{"End_location_latlng": req.body.End_location_latlng},
 					{"End_location_name": req.body.End_location_name},
 					{"Journey_EndDateTime" : req.body.Journey_EndDateTime}
-				}
 			}
 			{	upsert:false,
 				multi:false
