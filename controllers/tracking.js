@@ -1,26 +1,25 @@
-  var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
-  var MongoClient = require('mongodb').MongoClient;
-  var ObjectId = require('mongodb').ObjectID;
-  var mongoose = require('mongoose');
+	var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
+	var MongoClient = require('mongodb').MongoClient;
+	var ObjectId = require('mongodb').ObjectID;
+	var mongoose = require('mongoose');
 
 
-  var model = require('./../models/tracking');
+	var model = require('./../models/tracking');
   
-  var dbcon = mongoose.connect(uri, function(err, db){
-    if(err){
-        console.log("Can not connect to DB");
-        console.log(err);
-    }
-    else{
-        console.log("Connected to DB");
-    }
-});
+	var dbcon = mongoose.connect(uri, function(err, db){
+		if(err){
+			console.log("Can not connect to DB");
+			console.log(err);
+		}
+		else{
+			console.log("Connected to DB");
+		}
+	});
 
 	var TrackingModel = dbcon.model('Tracking', model.profileSchema);
   
 exports.add = function(req, res) {
-	
-	//console.log('JSON Received as : ' , req.body.data);
+
 		var obj = new TrackingModel(req.body)
 		
 		obj.save(function(err, result) {
@@ -31,23 +30,6 @@ exports.add = function(req, res) {
 				return res.json(result["_id"]);
 			}
 					
-		});
-		
-		/*
-		TrackingModel.insert(req.body, function(err, result) {
-				 if(err)
-					res.send("Error");
-				else {
-					console.log("ID returned = " + result["ops"][0]["_id"]);
-					return res.json(result["ops"][0]["_id"]);
-				}
-					
-		});
-		*/
-
-		db.collection('Tracking').count(function (err, count) {
-				if (err) throw err;
-					console.log('Total Rows in Tracking: ' + count);
 		});
 	};
 	
