@@ -36,14 +36,14 @@ exports.updateEndLocation = function(req, res) {
 	var idReceived = req.body.Object_ID.replace(/"/g, '\'');
 	
 	console.log('After parsing = ' + idReceived);
-	
+	 
 	MongoClient.connect(uri, function (err, db) {
    
 		if(err) throw err;
 		
 		db.collection('Tracking').update(
 			{
-				"_id": mongoose.Types.ObjectId(idReceived)
+				"_id": idReceived
 			},
 			{ 
 				$set: {
