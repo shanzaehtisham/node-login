@@ -41,7 +41,7 @@ exports.updateEndLocation = function(req, res) {
    
 		if(err) throw err;
 
-		db.Tracking.update(
+		db.collection('Tracking').update(
 			{
 				"_id.$oid": idReceived
 			},
