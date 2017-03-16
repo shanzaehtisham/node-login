@@ -54,7 +54,7 @@ exports.updateEndLocation = function(req, res) {
 			function(err, result){
 				console.log('success');
 				if (err) throw err;
-				console.log('result of update = '+ json.stringify(result));
+				console.log('result of update = '+ JSON.stringify(result));
 			}
 		
 		);
