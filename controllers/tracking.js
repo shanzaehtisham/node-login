@@ -43,7 +43,7 @@ exports.updateEndLocation = function(req, res) {
 
 		db.collection('Tracking').update(
 			{
-				"$oid": idReceived
+				"_id.$oid": idReceived
 			},
 			{ 
 				"$set": 
@@ -53,9 +53,6 @@ exports.updateEndLocation = function(req, res) {
 						"Journey_EndDateTime" : req.body.Journey_EndDateTime
 					}
 			},
-			{	upsert:false,
-				multi:false
-			},
 			function (err, result) {
 				if (err) throw err;
 				console.log('result of update = '+result);
@@ -64,7 +61,9 @@ exports.updateEndLocation = function(req, res) {
 	 
 	});
 };
-
+//{	upsert:false,
+				//multi:false
+			//},
 
 exports.updateRoute = function(req, res) {
 	
