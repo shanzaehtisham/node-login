@@ -11,7 +11,7 @@ module.exports = function (app) {
 	
 	app.post('/tracking/add', tracking.add);
 	app.post('/tracking/updateEndLocation', tracking.updateEndLocation);
-	//app.post('/tracking/updateRoute', tracking.updateRoute);
+	app.post('/tracking/updateRoute', tracking.updateRoute);
 	
 
 }

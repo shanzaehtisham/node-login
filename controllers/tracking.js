@@ -21,8 +21,8 @@
 exports.add = function(req, res) {
 	
 	//console.log('JSON Received as : ' +req.body.data);
-	  
-	  TrackingModel.insert(req.body, function(err, result) {
+	  var obj = new TrackingModel(req.body)
+	  obj.save(function(err, result) {
 				 if(err)
 					res.send("Error");
 				else {
@@ -53,3 +53,6 @@ exports.updateEndLocation = function(req, res) {
 	
 	};
 
+exports.updateRoute = function(req, res) {
+	
+};
