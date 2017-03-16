@@ -47,11 +47,11 @@ exports.updateEndLocation = function(req, res) {
 		
 		var query = { "_id": idReceived };
 		
-		var modelObj = db.model('Tracking', model.profileSchema);
+		//var modelObj = db.model('Tracking', model.profileSchema);
 		
-		console.log('Model' , modelObj);
+		//console.log('Model' , modelObj);
 		
-		modelObj.findOneAndUpdate
+		db.collection('Tracking').update
 		(
 			query,
 			{ 
