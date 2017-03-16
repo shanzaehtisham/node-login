@@ -45,10 +45,17 @@ exports.updateEndLocation = function(req, res) {
 	console.log('After parsing = ' + idReceived);
 	
 	var query = { "_id": new mongoose.Types.ObjectId(idReceived) };
-	TrackingModel.findOne(query, function(err, result){
+	TrackingModel.update(query, { 
+				"$set": 
+				{
+					"End_location_latlng": req.body.End_location_latlng,
+					"End_location_name": req.body.End_location_name,
+					"Journey_EndDateTime" : req.body.Journey_EndDateTime
+				}
+			},function(err, result){
 		console.log('success');
 		if (err) throw err;
-		console.log('result of update = '+ JSON.stringify(result));
+		console.log('result of update = '+ result);
 	});
 	
 	};
