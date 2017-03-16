@@ -33,6 +33,8 @@ exports.add = function(req, res) {
 
 exports.updateEndLocation = function(req, res) {
 	
+	
+	console.log("req.body" , req.body);
 	console.log('ObjectID received = ' + req.body.Object_ID);
 
 	var idReceived = req.body.Object_ID.replace(/"/g, '\'');
@@ -43,7 +45,7 @@ exports.updateEndLocation = function(req, res) {
    
 		if(err) throw err;
 		
-		var query = { "_id": ObjectId(req.body.Object_ID) };
+		var query = { "_id": req.body.Object_ID };
 		
 		profileSchema.findOneAndUpdate
 		(
