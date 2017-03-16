@@ -26,4 +26,5 @@ var profileSchema = new Schema({
     Purpose_ID: String
 });
 
-module.exports.profileModel = mongoose.model('Tracking', profileSchema);
+//module.exports.profileModel = mongoose.model('Tracking', profileSchema);
+module.exports.profileSchema = profileSchema;
