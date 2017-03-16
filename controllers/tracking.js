@@ -6,15 +6,23 @@
 
   var model = require('./../models/tracking');
   
+  var dbcon = mongoose.connect(uri, function(err, db){
+    if(err){
+        console.log("Can not connect to DB");
+        console.log(err);
+    }
+    else{
+        console.log("Connected to DB");
+    }
+});
+
+	var TrackingModel = dbcon.model('Tracking', model.profileSchema);
+  
 exports.add = function(req, res) {
 	
 	//console.log('JSON Received as : ' +req.body.data);
 	  
-	  MongoClient.connect(uri, function (err, db) {
-   
-		 if(err) throw err;
-
-			 db.collection('Tracking').insert(req.body, function(err, result) {
+	  TrackingModel.insert(req.body, function(err, result) {
 				 if(err)
 					res.send("Error");
 				else {
@@ -22,13 +30,7 @@ exports.add = function(req, res) {
 					return res.json(result["ops"][0]["_id"]);
 				}
 					
-			 });
-			 
-			db.collection('Tracking').count(function (err, count) {
-				if (err) throw err;
-					console.log('Total Rows in Tracking: ' + count);
-			});
-		});	 
+			 });	 
 	};
 	
 
@@ -41,7 +43,14 @@ exports.updateEndLocation = function(req, res) {
 	var idReceived = req.body.Object_ID.replace(/"/g, '');
 	
 	console.log('After parsing = ' + idReceived);
-	 
+	
+	var query = { "_id": new mongoose.Types.ObjectId(idReceived) };
+	TrackingModel.findOne(query, function(err, result){
+		console.log('success');
+		if (err) throw err;
+		console.log('result of update = '+ JSON.stringify(result));
+	});
+	 /*
 	MongoClient.connect(uri, function (err, db) {
    
 		if(err) throw err;
@@ -59,7 +68,7 @@ exports.updateEndLocation = function(req, res) {
 			}
 		
 		);
-
+*/
 		/*
 		db.collection('Tracking').update(
 			{
