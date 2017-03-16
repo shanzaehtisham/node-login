@@ -43,7 +43,7 @@ exports.updateEndLocation = function(req, res) {
 
 		db.collection('Tracking').update(
 			{
-				"_id": idReceived
+				"$oid": idReceived
 			},
 			{ 
 				"$set": 
