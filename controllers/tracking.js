@@ -41,16 +41,19 @@ exports.updateEndLocation = function(req, res) {
    
 		if(err) throw err;
 		
-		db.collection('Tracking').update(
+		db.Tracking.update(
 			{
 				"_id.$oid": idReceived
 			},
 			{ 
 				$set: {
-					"End_location_latlng": req.body.End_location_latlng,
-					"End_location_name": req.body.End_location_name,
-					"Journey_EndDateTime" : req.body.Journey_EndDateTime
+					{"End_location_latlng": req.body.End_location_latlng},
+					{"End_location_name": req.body.End_location_name},
+					{"Journey_EndDateTime" : req.body.Journey_EndDateTime}
 				}
+			}
+			{	upsert:false,
+				multi:false
 			},
 			function (err, result) {
 				if (err) throw err;
