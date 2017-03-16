@@ -3,7 +3,7 @@
   var ObjectId = require('mongodb').ObjectID
 
 
-  var model = require('./../models/tracking');
+  var model = require('./../models/tracking').profileModel;
   
 exports.add = function(req, res) {
 	
