@@ -3,6 +3,8 @@
   var ObjectId = require('mongodb').ObjectID
 
 
+  var model = require('./models/tracking');
+  
 exports.add = function(req, res) {
 	
 	//console.log('JSON Received as : ' +req.body.data);
@@ -40,7 +42,31 @@ exports.updateEndLocation = function(req, res) {
 	MongoClient.connect(uri, function (err, db) {
    
 		if(err) throw err;
+		
+		var query = {'_id':idReceived};
+		
+		model.findOneAndUpdate
+		(
+			query,
+			{ 
+				$set:
+					"End_location_latlng": req.body.End_location_latlng,
+					"End_location_name": req.body.End_location_name,
+					"Journey_EndDateTime" : req.body.Journey_EndDateTime
+			}, 
+					
+			{
+				upsert:false
+			},
+		
+			function(err, result){
+				if (err) throw err;
+				console.log('result of update = '+result);
+			}
+		
+		);
 
+		/*
 		db.collection('Tracking').update(
 			{
 				"_id" : ObjectId(idReceived)
@@ -58,7 +84,7 @@ exports.updateEndLocation = function(req, res) {
 				console.log('result of update = '+result);
 			}
 		);
-	 
+		*/
 	});
 };
 //{	upsert:false,
