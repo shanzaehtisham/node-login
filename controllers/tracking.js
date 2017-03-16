@@ -47,6 +47,8 @@ exports.updateEndLocation = function(req, res) {
 		
 		var query = { "_id": idReceived };
 		
+		console.log('Model' , model);
+		
 		model.findOneAndUpdate
 		(
 			query,
