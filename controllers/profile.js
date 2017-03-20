@@ -19,6 +19,37 @@ exports.findAll = function(req, res) {
 	  });
 };
 
+exports.login = function(req, res) {
+	
+	console.log('JSON Received as : ' +req.body.UserName);
+	  
+	  MongoClient.connect(uri, function (err, db) {
+   
+		 if(err) throw err;
+		
+			 db.collection('Profile', function(err, collection) {
+			
+			var name  = req.body.UserName;
+			var pass  = req.body.Password;
+			
+			collection.findOne({UserName: name, Password: pass},function (err, Name) {
+				
+			if(err)
+				return res.json('Error');
+			else{
+					if(Name){
+					return res.json('Success');
+					console.log(Name);
+					}
+					else
+					return res.json('NotMatched');	
+				}
+				
+  });
+         });
+		});	 
+	};
+
 exports.add = function(req, res) {
 	
 	console.log('JSON Received as : ' +req.body.data);
@@ -42,4 +73,6 @@ exports.add = function(req, res) {
 			});
 		});	 
 	};
+	
+	
 	
