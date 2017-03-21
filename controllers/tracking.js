@@ -76,7 +76,7 @@
 				}
 			},
 			function(err, result){
-				console.log('success');
+				console.log('Updated Route!');
 				if (err) throw err;
 			console.log('result of update = '+ result);
 			}
