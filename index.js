@@ -14,6 +14,7 @@ var connect = require('connect'),
   require('./routes.js')(app);
   require('./models/profile');
   require('./models/tracking');
+  require('./models/logs');
   
   
   app.get('/', function (req, res) {
