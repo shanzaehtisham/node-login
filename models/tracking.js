@@ -12,11 +12,11 @@ var trackingSchema = new Schema({
     End_location_latlng: String,
 	End_location_name: String,
     
-	Route: {
+	Route: [{
       crnt_location_latlng:  String,
 	  crnt_location_name:  String,
       crnt_time: Date  
-    },
+    }],
 	
     Purpose: String,
     Purpose_ID: String
