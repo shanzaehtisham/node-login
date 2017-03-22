@@ -67,15 +67,15 @@
 		TrackingModel.update
 		(
 			query
-			,{ 
-				"$push":
-				{ "Route":
-					{ "$each":
-						[
-						"Route.crnt_location_latlng": req.body.crnt_location_latlng,
-						"Route.crnt_location_name": req.body.crnt_location_name,
-						"Route.crnt_time" : req.body.crnt_time
-						]
+			,
+			{
+				"$push": {
+					"Route": {
+						"$each": [ {
+							"crnt_location_latlng": req.body.crnt_location_latlng,
+							"crnt_location_name": req.body.crnt_location_name,
+							"crnt_time" : req.body.crnt_time
+						}]
 					}
 				}
 			},
