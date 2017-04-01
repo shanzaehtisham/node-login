@@ -8,7 +8,7 @@ var connect = require('connect'),
   app.use(bodyparser.json());
   app.use(bodyparser.urlencoded({extended: true}));
   
-  var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
+  var uri = "url";
   var MongoClient = require('mongodb').MongoClient;
   
   require('./routes.js')(app);
