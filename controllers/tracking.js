@@ -1,4 +1,4 @@
-	var uri = "mongodb://shanzadb:Indushospital1@ds058369.mlab.com:58369/fyp";
+
 	var MongoClient = require('mongodb').MongoClient;
 	var ObjectId = require('mongodb').ObjectID;
 	var mongoose = require('mongoose');
