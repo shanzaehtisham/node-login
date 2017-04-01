@@ -8,7 +8,6 @@ module.exports = function (app) {
 	app.get('/profile', profile.findAll);
 	app.post('/profile', profile.add);
 	app.post('/login', profile.login);
-	app.post('/tracking/add', tracking.add);
 	
 	//tracking
 	app.post('/tracking/add', tracking.add);
